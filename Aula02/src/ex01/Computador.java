@@ -13,17 +13,30 @@ public class Computador extends Dispositivo implements Instalavel {
 	
 	public boolean instalar(Periferico periferico) {
 		for(int i=0; i < perifericos.length; i++)
-			if(perifericos[i].equals(periferico.getId()))
-				return true;
-		
+			// Verifica se array possui espaco
+			if(perifericos[i] == null)
+				for(int j=0; j < perifericos.length; j++)
+					// Verifica se o objeto nao existe
+					if(!(perifericos[j].equals(periferico))) {
+						// Adiciona (instala) periferico na posicao index
+						perifericos[index] = periferico;
+						index++;
+						return true;
+					}
+						
 		return false;
 	}
 	
 	public boolean desinstalar(Periferico periferico) {
-		for(int i=0; i < perifericos.length; i++)
-			if(perifericos[i].equals(periferico.getId()))
+		for(int j=0; j < perifericos.length; j++)
+			// Verifica se o objeto existe
+			if((perifericos[j].equals(periferico))) {
+				// Adiciona (instala) periferico na posicao index
+				perifericos[index] = null;
+				index--;
 				return true;
-		
+			}
+						
 		return false;
 	}
 
