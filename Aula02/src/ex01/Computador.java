@@ -10,13 +10,14 @@ public class Computador extends Dispositivo implements Instalavel {
 
 	public Computador(int id, String modelo, double velocidade) {
 		super(id, modelo);
-
+		this.velocidade = velocidade;
 	}
 
 	public boolean instalar(Periferico periferico) {
-		for (int i = 0; i < index; i++)
+		for (int i = 0; i < perifericos.length; i++)
 			// Verifica se posicao nao eh nula e se periferico nao foi instalado
-			if (perifericos[i] != null && !(perifericos[i].equals(periferico))) {
+			// if (perifericos[i] != null && !(perifericos[i].equals(periferico)))
+			if (perifericos[i] == null || !(perifericos[i].equals(periferico))) {
 				// Adiciona (instala) periferico na posicao index
 				perifericos[i] = periferico;
 				index++;
@@ -35,16 +36,14 @@ public class Computador extends Dispositivo implements Instalavel {
 				index--;
 				return true;
 			}
-		
+
 		return false;
 	}
 
 	@Override
 	public String toString() {
-		return "Computador [velocidade=" + velocidade + ", index=" + index + ", perifericos="
-				+ Arrays.toString(perifericos) + ", getId()=" + getId() + ", getModelo()=" + getModelo()
-				+ ", getClass()=" + getClass() + hashCode() + ", toString()=" + super.toString()
-				+ "]";
+		return "Computador:\n velocidade: " + velocidade + "\nindex: " + index + "\nperifericos: "
+				+ Arrays.toString(perifericos) + "\nId: " + getId() + "\nModelo: " + getModelo();
 	}
 
 }
