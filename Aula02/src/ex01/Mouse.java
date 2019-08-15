@@ -3,14 +3,15 @@ package ex01;
 public class Mouse extends Periferico {
 	private int botoes;
 
-	public Mouse(int id, String modelo) {
+	public Mouse(int id, String modelo, int botoes) {
 		super(id, modelo);
+		this.botoes = botoes;
 	}
 	
 	@Override
 	public String toString() {
 		return "Mouse [botoes=" + botoes + ", getId()=" + getId() + ", getModelo()=" + getModelo() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+				+ getClass() + ", toString()=" + super.toString() + "]";
 	}
 
 }
