@@ -1,3 +1,4 @@
+package exceptions;
 
 public class ValorInvalidoException extends Exception {
 	private double valor;
